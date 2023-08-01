@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 // Uncomment this line to use console.log
-import "hardhat/console.sol";
+// import "hardhat/console.sol";
 
 contract SimpleStorage {
     mapping (address => uint) addressToNumber;
@@ -11,11 +11,12 @@ contract SimpleStorage {
 
     function setFavouriteNumber(uint _favouriteNumber) public {
         addressToNumber[msg.sender] = _favouriteNumber;
-        console.log("Favourite number set to %s", _favouriteNumber);
+        // console.log("Favourite number set to %s", _favouriteNumber);
+        emit FavouriteNumberSet(_favouriteNumber);
     }
 
     function getFavouriteNumber() public view returns (uint) {
-        console.log("Favourite number is %s", addressToNumber[msg.sender]);
+        // console.log("Favourite number is %s", addressToNumber[msg.sender]);
         return addressToNumber[msg.sender];
     }
 }

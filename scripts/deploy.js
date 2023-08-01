@@ -19,6 +19,16 @@ async function main() {
   console.log(
     `SimpleStorage deployed to ${storage.target}`
   );
+
+  await storage.setFavouriteNumber(42);
+
+  const favNumber = await storage.getFavouriteNumber();
+  console.log(`Favourite number is ${favNumber}`);
+
+  await storage.setFavouriteNumber(100);
+
+  const favNumber2 = await storage.getFavouriteNumber();
+  console.log(`Favourite number is ${favNumber2} after change`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
